@@ -1,0 +1,10 @@
+$state=State::all();
+        foreach($state as $value){
+            
+            $modifiedString = str_replace(' ', '-', $value->name);
+            State::where('id',$value->id)->update([
+
+                'slug'=>strtolower($modifiedString)
+            ]);
+        
+        }
